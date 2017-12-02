@@ -21,4 +21,4 @@ Builds the app for production to the `build` folder.<br>
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
 The build is minified and the filenames include the hashes.<br>
-You can see builded app [https://v-khast.github.io/campers-leaderboard](here).
+You can see builded app [here](https://v-khast.github.io/campers-leaderboard).
