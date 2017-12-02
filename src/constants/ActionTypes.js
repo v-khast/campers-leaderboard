@@ -1,0 +1,2 @@
+export const SHOW_ALL_TIMES = 'SHOW_ALL_TIMES';
+export const SHOW_PAST_30_DAYS = 'SHOW_PAST_30_DAYS';
