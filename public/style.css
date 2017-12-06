@@ -1,0 +1,113 @@
+::selection {
+    background: rgba(255, 255, 255, .75);
+    color: rgba(0, 0, 0, .65);
+}
+::-moz-selection {
+    background: rgba(255, 255, 255, .75);
+    color: rgba(0, 0, 0, .65);
+}
+body {
+    background: rgba(0, 0, 0, 0)
+    linear-gradient(
+            to right,
+            rgb(103, 178, 111),
+            rgb(76, 162, 205))
+    repeat scroll 0 0;
+    color: rgba(255, 255, 255, .9);
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin-bottom: 50px;
+}
+.table-wrapper {
+    margin: auto;
+}
+.table-row {
+    display: grid;
+    grid-gap: 0;
+    grid-template-columns: 40px 1fr 1fr 1fr;
+    border: 1px solid rgba(255, 255, 255, .1);
+    border-bottom: none;
+}
+.table-row:nth-child(even) {
+    background: rgba(255, 255, 255, .05);
+}
+.table-head {
+    position: sticky;
+    top: 0;
+    background: rgba(0, 0, 0, 0)
+    linear-gradient(
+            to right,
+            rgb(103, 178, 111),
+            rgb(76, 162, 205))
+    repeat scroll 0 0;
+}
+.table-head .table-row {
+    background: rgba(255, 255, 255, .35);
+}
+.table-body .table-row:last-child {
+    border-bottom: 1px solid rgba(255, 255, 255, .1);
+}
+.table-body .table-row:hover {
+    background: rgba(255, 255, 255, .15);
+}
+.table-data {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid rgba(255, 255, 255, .1);
+    padding: 8px;
+    flex-wrap: wrap;
+    overflow: hidden;
+}
+.table-data.current {
+    border: 3px solid rgba(255, 255, 255, .55);
+}
+.table-data .user-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    overflow: hidden;
+    text-decoration: none;
+    color: rgba(255, 255, 255, .9);
+}
+.user-link:active,
+.user-link:hover,
+.user-link:focus,
+.user-link:visited {
+    text-decoration: none;
+}
+.table-data.justify-left {
+    justify-content: left;
+}
+.pointer {
+    cursor: pointer;
+}
+.profile-img {
+    width: 50px;
+    height: 50px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    margin: 0 10px;
+}
+@media only screen and (max-width: 576px) {
+    .table-data.justify-left {
+        justify-content: center;
+    }
+}
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    .table-wrapper {
+        max-width: 720px;
+    }
+}
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+    .table-wrapper {
+        max-width: 960px;
+    }
+}
+@media only screen and (min-width: 1200px) {
+    .table-wrapper {
+        max-width: 1140px;
+    }
+}

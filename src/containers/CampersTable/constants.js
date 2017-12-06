@@ -1,0 +1,2 @@
+export const LOAD_TABLE = 'LOAD_TABLE';
+export const LOAD_TABLE_FAILED = 'LOAD_TABLE_FAILED';
