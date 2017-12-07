@@ -51,7 +51,7 @@ export class CampersTable extends Component {
                 </div>
 
                 <div className="table-body">
-                  {errorMessage.length > 0 ?
+                  {errorMessage ?
                       <div>
                           <h3>Sorry, there is no data to display.</h3>
                           <p>It seems that you do not have access to the requested data.</p>
