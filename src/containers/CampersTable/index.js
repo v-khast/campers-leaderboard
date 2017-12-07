@@ -3,7 +3,7 @@ import TableRow from '../../components/TableRow/index'
 import classnames from 'classnames'
 import { connect } from 'react-redux'
 import { createStructuredSelector } from 'reselect'
-import { selectCampersTable } from './selectors'
+import { getCampersTable } from './selectors'
 import { loadAllTimes, loadPastThirtyDays } from './actions'
 
 
@@ -15,7 +15,7 @@ export class CampersTable extends Component {
 
     render() {
 
-        const { campersTable, onLoadAllTimes, onLoadPastThirtyDays } = this.props;
+        const { campersTable: { table, current, errorMessage }, onLoadAllTimes, onLoadPastThirtyDays } = this.props;
 
         const tableHeadClasses = {
           "table-data pointer": true,
@@ -23,12 +23,12 @@ export class CampersTable extends Component {
 
         const pastDaysClasses = classnames({
           ...tableHeadClasses,
-          "current": campersTable.current === "recent"
+          "current": current === "recent"
         });
 
         const allTimesClasses = classnames({
           ...tableHeadClasses,
-          "current": campersTable.current === "all"
+          "current": current === "all"
         });
 
         return (
@@ -51,14 +51,14 @@ export class CampersTable extends Component {
                 </div>
 
                 <div className="table-body">
-                  {campersTable instanceof Error ?
+                  {errorMessage.length > 0 ?
                       <div>
                           <h3>Sorry, there is no data to display.</h3>
                           <p>It seems that you do not have access to the requested data.</p>
-                          <p>Error message: {campersTable.message}</p>
+                          <p>Error message: {errorMessage}</p>
                       </div> :
-                      campersTable.table.length ?
-                          campersTable.table.map((camper, index) =>
+                      table.length ?
+                          table.map((camper, index) =>
                               <TableRow key={camper.username}
                                         index={index}
                                         camper={camper} />) :
@@ -72,7 +72,7 @@ export class CampersTable extends Component {
 }
 
 const mapStateToProps = createStructuredSelector({
-    campersTable: selectCampersTable(),
+    campersTable: getCampersTable(),
 });
 
 const mapDispatchToProps = {

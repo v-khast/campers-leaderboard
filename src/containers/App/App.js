@@ -1,5 +1,5 @@
 import React from 'react'
-import CampersTable from '../CampersTable/index'
+import CampersTable from '../CampersTable'
 
 
 export const App = () => (

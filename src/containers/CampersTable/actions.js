@@ -9,10 +9,10 @@ export function loadTable(table) {
     };
 }
 
-export function loadTableFailed(error) {
+export function loadTableFailed(errorMessage) {
     return {
         type: types.LOAD_TABLE_FAILED,
-        payload: error
+        payload: errorMessage
     };
 }
 
@@ -25,7 +25,7 @@ export const loadAllTimes = () => async (dispatch) => {
         }));
     } catch (error) {
         console.log(error);
-        dispatch( loadTableFailed(error) );
+        dispatch( loadTableFailed(error.message) );
     }
 };
 
@@ -38,6 +38,6 @@ export const loadPastThirtyDays = () => async (dispatch) => {
         }));
     } catch (error) {
         console.log(error);
-        dispatch(loadTableFailed(error));
+        dispatch(loadTableFailed(error.message));
     }
 };
